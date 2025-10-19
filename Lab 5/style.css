@@ -1,0 +1,259 @@
+/*загальні*/
+body {
+    font-family: sans-serif;
+    background-color: #f4f4f4;
+}
+
+/*для 1*/
+
+.task-1-wrapper {
+    background-color: rgb(255, 165, 0);
+    width: 500px;
+    padding: 20px;
+    color: white;
+    margin: 20px auto;
+}
+
+
+.task-1-wrapper h1 {
+    font-size: 25px;
+    font-weight: 900;
+    margin: 0 0 10px 0; 
+}
+
+
+.task-1-wrapper ul {
+    list-style-type: none;
+    list-style-position: inside;
+    padding: 0;
+    margin: 0;
+}
+
+.task-1-wrapper > ul > li {
+    background-color: rgb(103, 158, 128);
+    padding: 20px 20px 20px 50px;
+    margin-bottom: 10px;
+    background-image: url('icons/checklist.png');
+    background-repeat: no-repeat;
+    background-position: 15px center;
+    background-size: 24px;
+}
+
+
+.task-1-wrapper ul ul {
+    font-size: 18px;
+    font-style: italic;
+    margin-top: 10px;
+}
+
+
+.task-1-wrapper ul ul li {
+    background-color: rgb(153, 180, 102); 
+    margin-bottom: 10px;
+    padding-left: 40px; 
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    background-size: 20px;
+}
+
+.task-1-wrapper ul ul li:last-child {
+    margin-bottom: 0;
+}
+
+
+.icon-smartphone { background-image: url('icons/smartphone.png'); }
+.icon-flight { background-image: url('icons/flight.png'); }
+.icon-hotel { background-image: url('icons/hotel.png'); }
+.icon-car { background-image: url('icons/car.png'); }
+.icon-bar { background-image: url('icons/bar.png'); }
+.icon-casino { background-image: url('icons/casino.png'); }
+.icon-museum { background-image: url('icons/museum.png'); }
+.icon-festival { background-image: url('icons/festival.png'); }
+
+
+.task-1-wrapper span {
+    padding: 10px 20px;
+    display: inline-block;
+}
+
+
+.task-1-wrapper span.level-1 {
+    font-size: 20px;
+    font-weight: 700;
+    background-color: rgb(199, 124, 106);
+    margin-bottom: 10px;
+}
+
+
+.task-1-wrapper ul ul span {
+    background-color: rgb(218, 106, 32);
+}
+
+/*для 2*/
+
+table {
+    border-collapse: collapse;
+    width: 80%;
+    margin: 50px auto;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+table caption {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #333;
+}
+
+table thead tr {
+    background-color: #0b3d61;
+    color: white;
+    text-align: center;
+    font-size: 1.1em;
+}
+
+table th, table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+}
+
+table tbody tr {
+    background-color: #f9f9f9;
+}
+
+table tbody tr:nth-of-type(even) {
+    background-color: #eef;
+}
+
+table tbody tr:nth-of-type(2) {
+    font-weight: bold;
+    font-size: 1.2em;
+    background-color: #d6e4f0;
+}
+
+table td:first-child {
+    text-align: left;
+    font-weight: bold;
+    background-color: #f0f5f9;
+}
+
+
+table th:nth-child(1), table td:nth-child(2) { background-color: #eaf2fa; }
+table th:nth-child(2), table td:nth-child(3) { background-color: #d4e5f5; }
+table th:nth-child(3), table td:nth-child(4) { background-color: #bdd8f0; }
+table th:nth-child(4), table td:nth-child(5) { background-color: #a7caeb; }
+
+
+/*для 3*/
+
+.task-3-body {
+    background-color: #e0e9f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.task-3-body form {
+    background-color: #ffffff;
+    padding: 25px 40px;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 100%;
+}
+
+.task-3-body h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.task-3-body fieldset {
+    border: 1px solid #bdc3c7;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+.task-3-body legend {
+    font-weight: bold;
+    color: #34495e;
+    padding: 0 10px;
+}
+
+.task-3-body label {
+    display: block;
+    margin-bottom: 5px;
+    color: #34495e;
+    font-weight: 500;
+}
+
+.task-3-body input[type="text"],
+.task-3-body input[type="email"],
+.task-3-body input[type="password"],
+.task-3-body select,
+.task-3-body textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    transition: border-color 0.3s;
+}
+
+.task-3-body input[type="text"]:focus,
+.task-3-body input[type="email"]:focus,
+.task-3-body input[type="password"]:focus,
+.task-3-body select:focus,
+.task-3-body textarea:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+.task-3-body input[type="radio"] {
+    margin-right: 5px;
+}
+
+.task-3-body input[type="radio"] + label {
+    display: inline;
+    margin-right: 15px;
+}
+
+.task-3-body .form-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.task-3-body input[type="submit"],
+.task-3-body input[type="reset"] {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    flex-basis: 48%;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.task-3-body input[type="submit"] {
+    background-color: #3498db;
+    color: white;
+}
+
+.task-3-body input[type="submit"]:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+}
+
+.task-3-body input[type="reset"] {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.task-3-body input[type="reset"]:hover {
+    background-color: #c0392b;
+    transform: translateY(-2px);
+}
