@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Завдання 3 - Анкета</title>
+</head>
+<body style="text-align: center;">
+
+    <h1>Завдання 3: Анкета</h1>
+
+    <h2>Форма з методом GET</h2>
+    <form action="" method="get" style="display: inline-block; text-align: left; width: 500px;">
+        <fieldset>
+            <legend>Особиста інформація</legend>
+            <label for="name">Ім'я:</label><br>
+            <input type="text" id="name" name="user_name" placeholder="Введіть ваше ім'я" required tabindex="1"><br><br>
+
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="user_email" placeholder="example@mail.com" required autocomplete="off" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" tabindex="2"><br><br>
+            
+            <label for="tel">Телефон:</label><br>
+            <input type="tel" id="tel" name="user_tel" placeholder="+380xxxxxxxxx" required pattern="\+380[0-9]{9}" tabindex="3"><br><br>
+
+            <label for="password">Пароль (6 символів, 1 велика, 1 мала, 1 цифра):</label><br>
+            <input type="password" id="password" name="user_password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" tabindex="4"><br><br>
+        </fieldset>
+
+        <fieldset>
+            <legend>Додаткова інформація</legend>
+            <label for="birthdate">Дата народження:</label><br>
+            <input type="date" id="birthdate" name="birth_date" tabindex="5"><br><br>
+
+            <p>Ваш улюблений сезон?</p>
+            <input type="radio" id="summer" name="season" value="summer" tabindex="6">
+            <label for="summer">Літо</label><br>
+            <input type="radio" id="winter" name="season" value="winter" tabindex="6">
+            <label for="winter">Зима</label><br>
+            <input type="radio" id="spring" name="season" value="spring" tabindex="6">
+            <label for="spring">Весна</label><br><br>
+
+            <p>Якій каві надаєте перевагу?</p>
+            <input type="radio" id="latte" name="coffee" value="latte" tabindex="7">
+            <label for="latte">Латте</label><br>
+            <input type="radio" id="cappuccino" name="coffee" value="cappuccino" checked tabindex="7">
+            <label for="cappuccino">Капучино</label><br>
+            <input type="radio" id="espresso" name="coffee" value="espresso" tabindex="7">
+            <label for="espresso">Еспресо</label><br><br>
+
+            <p>Які фрукти вам подобаються?</p>
+            <input type="checkbox" id="apple" name="fruits" value="apple" tabindex="8">
+            <label for="apple">Яблука</label><br>
+            <input type="checkbox" id="banana" name="fruits" value="banana" tabindex="8">
+            <label for="banana">Банани</label><br>
+            <input type="checkbox" id="orange" name="fruits" value="orange" tabindex="8">
+            <label for="orange">Апельсини</label><br>
+            <input type="checkbox" id="grape" name="fruits" value="grape" tabindex="8">
+            <label for="grape">Виноград</label><br><br>
+
+            <label for="comment">Коментар:</label><br>
+            <textarea id="comment" name="user_comment" rows="4" cols="50" placeholder="Ваш коментар..." tabindex="9"></textarea><br><br>
+        </fieldset>
+        
+        <fieldset>
+            <legend>Випадаючі списки</legend>
+            
+            <label for="city">Оберіть місто (один варіант):</label><br>
+            <select id="city" name="user_city" tabindex="10">
+                <option value="kyiv">Київ</option>
+                <option value="lviv">Львів</option>
+                <option value="odesa" selected>Одеса</option>
+                <option value="kharkiv">Харків</option>
+                <option value="dnipro">Дніпро</option>
+            </select><br><br>
+
+            <label for="languages">Оберіть мови програмування (кілька варіантів):</label><br>
+            <select id="languages" name="user_languages" multiple size="4" tabindex="11">
+                <option value="js">JavaScript</option>
+                <option value="python">Python</option>
+                <option value="java">Java</option>
+                <option value="csharp">C#</option>
+                <option value="php">PHP</option>
+                <option value="cpp">C++</option>
+            </select><br><br>
+
+            <label for="transport">Оберіть транспорт:</label><br>
+            <select id="transport" name="user_transport" tabindex="12">
+                <optgroup label="Наземний">
+                    <option value="bus">Автобус</option>
+                    <option value="car">Автомобіль</option>
+                    <option value="train">Поїзд</option>
+                </optgroup>
+                <optgroup label="Повітряний">
+                    <option value="plane">Літак</option>
+                    <option value="helicopter">Вертоліт</option>
+                </optgroup>
+            </select><br><br>
+
+            <label for="browser_choice">Введіть або оберіть браузер:</label><br>
+            <input list="browsers" id="browser_choice" name="user_browser" tabindex="13">
+            <datalist id="browsers">
+                <option value="Chrome">
+                <option value="Firefox">
+                <option value="Safari">
+                <option value="Edge">
+                <option value="Opera">
+            </datalist><br><br>
+
+        </fieldset>
+
+        <input type="submit" value="Надіслати (GET)" tabindex="15">
+        <input type="reset" value="Скинути" tabindex="16">
+    </form>
+    
+    <hr style="margin: 20px 0;">
+    
+    <h2>Форма з методом POST для завантаження файлів</h2>
+    <form action="" method="post" enctype="multipart/form-data" style="display: inline-block; text-align: left;">
+         <fieldset>
+            <legend>Завантаження файлів</legend>
+             <label for="audio_files">Завантажте аудіо-файли (можна кілька):</label><br>
+            <input type="file" id="audio_files" name="user_audio" accept="audio/*" multiple tabindex="14"><br><br>
+        </fieldset>
+        <input type="submit" value="Надіслати (POST)" tabindex="17">
+    </form>
+
+    <p><a href="../index.html">Повернутись на головну</a></p>
+
+</body>
+</html>
