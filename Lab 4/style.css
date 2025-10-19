@@ -1,0 +1,189 @@
+/*для пепшого*/
+
+.task1 * {
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    line-height: 40px;
+}
+
+.task1 p {
+    color: green;
+    text-align: center;
+}
+
+.task1 div {
+    text-align: justify;
+}
+
+.task1 .red-text {
+    color: red;
+}
+
+.task1 .no-wrap {
+    white-space: nowrap;
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+}
+
+.task1 #special-paragraph {
+    font-style: italic;
+    font-weight: bold;
+}
+
+.task1 .text-shadow-effect {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+}
+
+.task1 .div-style-1 {
+    text-decoration: line-through;
+    text-transform: uppercase;
+    text-indent: 50px;
+}
+
+.task1 .div-style-2 {
+    letter-spacing: 15px;
+    word-spacing: 30px;
+}
+
+/*для 2*/
+
+.task2 {
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    color: black;
+    border: 2px solid #ccc; 
+    width: 800px;
+    margin: 20px auto; 
+    padding: 20px;
+}
+
+.task2 .recipe-title {
+    font-size: 2em;
+    color: red;
+    font-weight: normal;
+}
+
+.task2 .recipe-subtitle {
+    font-weight: bold;
+    font-style: italic;
+}
+
+.task2 .highlight {
+    background-color: yellow;
+}
+
+.task2 .recipe-hr {
+    border: none;
+    height: 2px;
+    background-color: green;
+}
+
+.task2 .success-text {
+    color: green;
+    font-style: italic;
+}
+
+/*для 3*/
+
+.task3 {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+}
+
+.task3 a {
+    color: purple;
+}
+
+.task3 .main-menu-item {
+    color: green !important;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.task3 .berry-list {
+    list-style-type: none; 
+}
+
+.task3 .berry-list a {
+    text-decoration: none;
+}
+
+.task3 ul ul {
+    list-style-type: none;
+}
+
+/*заміна маркеру*/
+.task3 .vegetable-list li {
+   
+    background: url('assets/check-mark.svg') no-repeat left center;
+    padding-left: 25px;
+}
+
+.task3 .misc-list {
+    list-style-position: inside;
+}
+
+
+/*для 4*/
+
+.task4 {
+    font-family: 'Times New Roman', Times, serif;
+    width: 900px;
+    margin: 20px auto;
+}
+
+.task4 .text-background span {
+    font-style: italic;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.task4 div .text-background span {
+    background-color: yellow;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: none;
+}
+
+.task4 span span {
+    background-color: #d3d3d3;
+    text-decoration: line-through;
+    color: black;
+}
+
+.task4 ol span span {
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+.task4 section > p {
+    text-shadow: 3px 3px 5px #888888;
+    text-indent: 50px;
+}
+
+.task4 li > ul {
+    /*тож заміна*/
+    list-style-image: url('assets/check-mark.svg');
+}
+
+.task4 div > p.text-background {
+    word-spacing: 50px;
+}
+
+.task4 .bold > p {
+    font-weight: bold;
+}
+
+.task4 .bold > section > p {
+    line-height: 45px;
+}
+
+.task4 img + p {
+    background-color: brown;
+    color: white;
+    padding: 10px;
+}
+
+.task4 section ~ p {
+    color: red;
+}
