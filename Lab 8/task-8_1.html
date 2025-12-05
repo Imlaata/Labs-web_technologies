@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab 8 - Task 1 (Weather)</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background: #f0f0f0; display: flex; justify-content: center; padding-top: 50px; }
+        
+        .weather-widget {
+            background: white;
+            width: 400px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            color: #444;
+        }
+
+        .current-weather {
+            padding: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+        .city-name { font-size: 32px; color: #555; margin: 0; }
+        .date { color: #888; margin: 5px 0 20px 0; }
+
+        .weather-main {
+            display: flex; 
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .main-icon { font-size: 60px; color: #ccc; }
+        .temp-large { font-size: 60px; color: #555; font-weight: 300; }
+        
+        .weather-details {
+            font-size: 14px;
+            color: #777;
+            line-height: 1.5;
+            text-align: right;
+        }
+
+        .forecast-list {
+            padding: 0 20px;
+        }
+
+        .forecast-item {
+            display: flex; 
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .forecast-item:last-child { border-bottom: none; }
+
+        .day-name { width: 100px; font-weight: bold; color: #444; }
+        .day-icon { width: 50px; text-align: center; font-size: 24px; }
+        .day-icon.sunny { color: #fbc02d; }
+        .day-icon.cloudy { color: #90a4ae; }
+        .day-icon.rain { color: #4fc3f7; }
+
+        .day-temp { width: 60px; text-align: right; }
+        .high { font-weight: bold; display: block; }
+        .low { color: #999; font-size: 12px; }
+
+        .pollen { width: 80px; text-align: right; color: #888; font-size: 14px; }
+    </style>
+</head>
+<body>
+
+<div class="weather-widget">
+    <div class="current-weather">
+        <h1 class="city-name">New York, NY</h1>
+        <p class="date">Tuesday, April 15th<br>Overcast</p>
+        
+        <div class="weather-main">
+            <i class="fas fa-cloud main-icon"></i>
+            <span class="temp-large">58°F</span>
+            <div class="weather-details">
+                Precipitation: 100%<br>
+                Humidity: 97%<br>
+                Wind: 4 mph SW<br>
+                Pollen Count: 36
+            </div>
+        </div>
+    </div>
+
+    <div class="forecast-list">
+        <div class="forecast-item">
+            <div class="day-name">Today</div>
+            <div class="day-icon rain"><i class="fas fa-cloud-showers-heavy"></i></div>
+            <div class="day-temp"><span class="high">68°</span><span class="low">36°</span></div>
+            <div class="pollen">Pollen 36</div>
+        </div>
+        <div class="forecast-item">
+            <div class="day-name">Wednesday</div>
+            <div class="day-icon sunny"><i class="fas fa-sun"></i></div>
+            <div class="day-temp"><span class="high">50°</span><span class="low">39°</span></div>
+            <div class="pollen">Pollen 36</div>
+        </div>
+        <div class="forecast-item">
+            <div class="day-name">Thursday</div>
+            <div class="day-icon sunny"><i class="fas fa-sun"></i></div>
+            <div class="day-temp"><span class="high">55°</span><span class="low">39°</span></div>
+            <div class="pollen">Pollen 36</div>
+        </div>
+        <div class="forecast-item">
+            <div class="day-name">Friday</div>
+            <div class="day-icon cloudy"><i class="fas fa-cloud-sun"></i></div>
+            <div class="day-temp"><span class="high">54°</span><span class="low">43°</span></div>
+            <div class="pollen">Pollen 36</div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

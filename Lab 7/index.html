@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Лабораторна робота - Варіант 3 (Alive Version)</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            margin: 0;
+            padding: 0;
+            padding-bottom: 500px; 
+            color: #333;
+        }
+        h2 {
+            border-bottom: 2px solid #7d21b3;
+            padding-bottom: 10px;
+            margin-top: 50px;
+            color: #444;
+            text-align: center;
+        }
+        .container-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .task1-container {
+            position: relative;
+            height: 160px;
+            width: 320px;
+            border: 2px dashed #aaa;
+            margin: 20px auto;
+            background-color: rgba(255,255,255,0.5);
+            border-radius: 10px;
+        }
+
+        .t1-block {
+            width: 150px;
+            height: 70px;
+            border: none;
+            padding: 15px;
+            box-sizing: border-box;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .t1-block:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+            z-index: 10;
+        }
+
+        .t1-top {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 2;
+            background: linear-gradient(to right, #a1c4fd, #c2e9fb);
+            color: #2c3e50;
+        }
+
+        .t1-bottom {
+            position: absolute;
+            top: 60px;
+            left: 60px;
+            z-index: 1;
+            background: linear-gradient(to right, #d4fc79, #96e6a1);
+            color: #2c3e50;
+        }
+
+        .task2-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            flex-direction: row-reverse; 
+        }
+
+        .box {
+            width: 140px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-weight: bold;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55); 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .b1-right {
+            background: linear-gradient(45deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+            color: white;
+        }
+
+        .b1-left {
+            background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+            color: white;
+        }
+
+        .b2 {
+            position: absolute; 
+            margin-top: 120px; 
+            background: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+            opacity: 0;
+            transform: scale(0.5) translateY(20px);
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .b1-right:hover ~ .b1-left {
+            opacity: 0;
+            transform: scale(0.8) translateX(-50px);
+            filter: blur(5px);
+        }
+
+        .b1-left:hover ~ .b2 {
+            opacity: 1;
+            visibility: visible;
+            transform: scale(1) translateY(0);
+        }
+
+        .form-wrapper {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .form-container {
+            width: 620px;
+            border: 20px solid #868686;
+            padding: 0 30px 30px 30px;
+            background: url('https://images.unsplash.com/photo-1550684848-fac1c5b4e853?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center;
+            background-size: cover;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .form-container::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 0;
+        }
+
+        .form-content {
+            position: relative;
+            z-index: 1; 
+        }
+
+        .form-header {
+            text-align: center;
+            margin: 30px 0;
+            position: relative;
+            height: 40px;
+        }
+
+        .form-header span {
+            font-size: 25px;
+            color: #d68ff5;
+            font-weight: 700;
+            font-style: italic;
+            transition: opacity 0.4s ease;
+            display: inline-block;
+        }
+        
+        .form-header span::first-letter {
+            font-size: 50px;
+            color: #ff80ab;
+            text-shadow: 0 0 10px rgba(255, 128, 171, 0.5);
+        }
+
+        .header-line {
+            position: absolute;
+            height: 4px;
+            width: 0px; 
+            background: linear-gradient(90deg, transparent, #00ff00, transparent);
+            top: 50%;
+            transition: width 0.5s ease-out;
+        }
+        .line-left { left: 50px; }
+        .line-right { right: 50px; }
+        
+        .line-left, .line-right { width: 80px; }
+
+        .form-header:hover span {
+            opacity: 0; 
+        }
+        
+        .form-header::after {
+            content: 'Ми вдячні вам';
+            position: absolute;
+            left: 0; right: 0; top: 0;
+            text-align: center;
+            font-size: 30px;
+            color: #00e676;
+            font-weight: bold;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.4s ease 0.1s;
+        }
+
+        .form-header:hover::after {
+            opacity: 1;
+            transform: translateY(0);
+            text-shadow: 0 0 20px rgba(0, 255, 0, 0.8);
+        }
+
+        .form-row { margin-bottom: 20px; overflow: hidden; }
+        .col-left { float: left; width: 48%; }
+        .col-right { float: right; width: 48%; }
+
+        label {
+            display: block;
+            color: #ddd;
+            font-size: 14px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: none;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.8);
+            font-size: 16px;
+            transition: all 0.3s;
+            border-bottom: 3px solid transparent;
+        }
+
+        input:focus, textarea:focus {
+            background: #fff;
+            transform: scale(1.02); 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            outline: none;
+        }
+
+        input[type="text"]:focus { border-bottom-color: #ffa600; }
+        input[type="password"]:focus { border-bottom-color: #00ffea; }
+
+        textarea {
+            resize: none;
+            height: 60px;
+        }
+        textarea::first-line { color: #ff4081; font-weight: bold; }
+
+        .btn-group { text-align: right; margin-top: 20px; }
+        
+        button {
+            padding: 12px 30px;
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s;
+            margin-left: 10px;
+        }
+
+        .btn-reset {
+            background: #ff5722;
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 87, 34, 0.4);
+        }
+        .btn-ok {
+            background: #00bcd4;
+            color: white;
+            box-shadow: 0 4px 15px rgba(0, 188, 212, 0.4);
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.1);
+        }
+        button:active {
+            transform: translateY(1px);
+        }
+
+
+        .navbar-fixed {
+            position: fixed;
+            top: 0; left: 0; width: 100%;
+            background: rgba(30, 30, 30, 0.9);
+            backdrop-filter: blur(10px); 
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .nav-list { list-style: none; margin: 0; padding: 0; display: flex; }
+        .nav-item { position: relative; }
+        .nav-item:last-child { margin-left: auto; } 
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            padding: 15px 25px;
+            color: #fff;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+        .nav-link:hover { background: rgba(255,255,255,0.1); }
+        .nav-link .material-icons { margin-right: 8px; font-size: 20px; transition: transform 0.3s; }
+        .nav-link:hover .material-icons { transform: rotate(15deg) scale(1.2); }
+
+        .sticky-wrapper {
+            height: 100px; 
+            margin-top: 80px;
+        }
+        .navbar-sticky {
+            position: sticky;
+            top: 60px; 
+            background: #ff9800;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(255, 152, 0, 0.4);
+            border-radius: 5px;
+            width: 80%;
+            margin: 0 auto;
+            z-index: 900;
+        }
+
+        .vertical-nav {
+            width: 250px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+            margin: 20px auto;
+        }
+
+        .v-item { position: relative; border-bottom: 1px solid #eee; }
+        .v-link {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            color: #333;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .v-link:hover { background: #f0f0f0; padding-left: 20px; color: #7d21b3; }
+
+        .v-sub {
+            position: absolute;
+            left: 100%; top: 0;
+            width: 200px;
+            background: white;
+            border-radius: 0 10px 10px 10px;
+            box-shadow: 5px 5px 20px rgba(0,0,0,0.1);
+            
+            visibility: hidden;
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+
+        .v-item:hover > .v-sub {
+            visibility: visible;
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .weather-container {
+            position: relative;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .weather-card {
+            position: relative;
+            width: 320px;
+            height: 250px;
+        }
+
+        .weather-black {
+            position: absolute;
+            top: 0; left: 0;
+            width: 200px;
+            height: 200px;
+            background: #222;
+            color: white;
+            z-index: 5;
+            box-shadow: 15px 15px 40px rgba(0,0,0,0.4);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 20px;
+            box-sizing: border-box;
+            transition: transform 0.4s;
+        }
+        
+        .weather-card:hover .weather-black {
+            transform: scale(1.05) translateY(-10px);
+        }
+
+        .temp { font-size: 80px; line-height: 1; font-weight: 700; }
+        
+        @keyframes floatCloud {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .cloud {
+            position: absolute;
+            top: -30px;
+            right: -60px;
+            font-size: 120px;
+            color: rgba(255,255,255,0.9);
+            text-shadow: 0 0 30px rgba(255,255,255,0.8);
+            z-index: 6;
+            animation: floatCloud 4s ease-in-out infinite;
+        }
+
+        .weather-white {
+            position: absolute;
+            bottom: 0; right: 0;
+            width: 220px;
+            height: 110px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(5px);
+            z-index: 4;
+            box-shadow: 5px 5px 20px rgba(0,0,0,0.1);
+            border-radius: 4px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding-left: 60px; 
+            box-sizing: border-box;
+        }
+
+        .day-item {
+            text-align: center;
+            font-size: 12px;
+            color: #777;
+            transition: transform 0.2s;
+        }
+        .day-item:hover { transform: scale(1.2); color: #222; cursor: default; }
+        .day-item b { display: block; font-size: 14px; margin-bottom: 2px; color: #333; }
+
+    </style>
+</head>
+<body>
+
+    <nav class="navbar-fixed">
+        <ul class="nav-list">
+            <li class="nav-item"><a href="#" class="nav-link"><span class="material-icons">home</span> Home</a></li>
+            <li class="nav-item"><a href="#" class="nav-link"><span class="material-icons">face</span> About</a></li>
+            <li class="nav-item"><a href="#" class="nav-link"><span class="material-icons">work</span> Projects</a></li>
+        </ul>
+    </nav>
+
+    <div class="container-wrapper">
+        
+        <h2>Завдання 1 & 2 (Варіант 3: Alive Logic)</h2>
+        <div style="text-align: center; margin-bottom: 20px;">
+            <small>Наведи на правий блок — лівий зникне. Наведи на лівий — з'явиться третій.</small>
+        </div>
+
+        <div class="task2-container">
+            <div class="box b1-right">Блок 1 (Right)<br>Наведи сюди</div>
+            
+            <div style="position: relative;">
+                <div class="box b1-left">Блок 1 (Left)<br>Наведи сюди</div>
+                <div class="box b2">🎉 Блок 2<br>З'явився!</div>
+            </div>
+        </div>
+
+        <div class="task1-container">
+            <div class="t1-block t1-top">Layer Top</div>
+            <div class="t1-block t1-bottom">Layer Bottom</div>
+        </div>
+
+        <h2>Завдання 3: Жива Форма</h2>
+        <div class="form-wrapper">
+            <div class="form-container">
+                <div class="form-content">
+                    <div class="form-header">
+                        <div class="header-line line-left"></div>
+                        <span>Заповніть форму</span>
+                        <div class="header-line line-right"></div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="col-left">
+                            <label>Login</label>
+                            <input type="text" placeholder="Enter login...">
+                        </div>
+                        <div class="col-right">
+                            <label>Email</label>
+                            <input type="email" placeholder="example@mail.com">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="col-left">
+                            <label>Password</label>
+                            <input type="password">
+                        </div>
+                        <div class="col-right">
+                            <label>Repeat password</label>
+                            <input type="password">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <label>About me</label>
+                        <textarea>Почни писати тут...</textarea>
+                    </div>
+
+                    <div class="btn-group">
+                        <button class="btn-reset">Reset</button>
+                        <button class="btn-ok">OK</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2>Завдання 4: Навігація (Sticky + Vertical)</h2>
+        
+        <div class="sticky-wrapper">
+            <div class="navbar-sticky">Sticky Menu (Scroll Down!)</div>
+        </div>
+
+        <nav class="vertical-nav">
+            <div class="v-item">
+                <a href="#" class="v-link"><span class="material-icons" style="margin-right:10px">dashboard</span> Menu Item 1</a>
+                <div class="v-sub">
+                    <div class="v-item">
+                        <a href="#" class="v-link">Submenu 1.1</a>
+                        <div class="v-sub">
+                            <div class="v-item"><a href="#" class="v-link">Deep Link 1.1.1</a></div>
+                        </div>
+                    </div>
+                    <div class="v-item"><a href="#" class="v-link">Submenu 1.2</a></div>
+                </div>
+            </div>
+            <div class="v-item">
+                <a href="#" class="v-link"><span class="material-icons" style="margin-right:10px">settings</span> Settings</a>
+            </div>
+        </nav>
+
+        <h2>Завдання 5: Weather Card (Animated)</h2>
+        <div class="weather-container">
+            <div class="weather-card">
+                <div class="weather-black">
+                    <div class="cloud">☁</div>
+                    <div class="temp">17°</div>
+                </div>
+                <div class="weather-white">
+                    <div class="day-item"><b>Tue</b>17°</div>
+                    <div class="day-item"><b>Wed</b>19°</div>
+                    <div class="day-item"><b>Thu</b>16°</div>
+                    <div class="day-item"><b>Fri</b>21°</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
+
