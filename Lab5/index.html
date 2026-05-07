@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторна робота №5</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background: #f0f2f5; padding: 20px; max-width: 1000px; margin: 0 auto; }
+        .task-section { background: white; padding: 20px; border-radius: 10px; margin-bottom: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        h2 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 5px; }
+        button, select, input { padding: 8px 12px; margin: 5px; border-radius: 5px; border: 1px solid #ccc; cursor: pointer; }
+        button { background: #3498db; color: white; border: none; transition: 0.3s; }
+        button:hover { background: #2980b9; }
+
+        /* Завдання 1: Лампочка */
+        .bulb { width: 100px; height: 100px; border-radius: 50%; background: #555; margin: 20px auto; transition: background 0.3s, box-shadow 0.3s, opacity 0.3s; }
+        .bulb.on.standard { background: #ffeb3b; box-shadow: 0 0 50px #ffeb3b; }
+        .bulb.on.energy { background: #e0f7fa; box-shadow: 0 0 40px #e0f7fa; }
+        .bulb.on.led { background: #fff; box-shadow: 0 0 60px #fff; }
+
+        /* Завдання 2: Світлофор */
+        .traffic-light { width: 60px; background: #333; padding: 15px; border-radius: 10px; margin: 0 auto; display: flex; flex-direction: column; gap: 10px; }
+        .light { width: 60px; height: 60px; border-radius: 50%; background: #555; transition: 0.3s; }
+        .light.red.active { background: #ff3333; box-shadow: 0 0 20px #ff3333; }
+        .light.yellow.active { background: #ffcc00; box-shadow: 0 0 20px #ffcc00; }
+        .light.green.active { background: #33cc33; box-shadow: 0 0 20px #33cc33; }
+        .blink { animation: blinker 0.5s linear infinite; }
+        @keyframes blinker { 50% { opacity: 0; } }
+
+        /* Завдання 3: Годинник та Календар */
+        .clock { font-size: 2em; font-family: monospace; background: #222; color: #0f0; padding: 10px; border-radius: 5px; text-align: center; width: max-content; }
+        .blink-colon { animation: blinker 1s linear infinite; }
+
+        /* Завдання 4: Магазин */
+        .store-log { background: #f8f9fa; padding: 10px; border: 1px solid #ddd; height: 200px; overflow-y: auto; font-family: monospace; white-space: pre-wrap; }
+    </style>
+</head>
+<body>
+
+<div class="on standard energy led active blink red yellow green" style="display: none;" aria-hidden="true"></div>
+
+<div class="task-section">
+    <h2>Завдання 1: Лампочка</h2>
+    <div id="bulb" class="bulb standard"></div>
+    <div style="text-align: center;">
+        <select id="bulbType" aria-label="Вибір типу лампочки">
+            <option value="standard">Звичайна</option>
+            <option value="energy">Енергозберігаюча</option>
+            <option value="led">Світлодіодна</option>
+        </select>
+        <button onclick="toggleBulb()">Увімкнути/Вимкнути</button>
+        <button onclick="changeBrightness()">Змінити яскравість</button>
+        <p><small>* Автовимкнення через 5 хвилин бездіяльності</small></p>
+    </div>
+</div>
+
+<div class="task-section">
+    <h2>Завдання 2: Світлофор</h2>
+    <div class="traffic-light">
+        <div id="redLight" class="light red"></div>
+        <div id="yellowLight" class="light yellow"></div>
+        <div id="greenLight" class="light green"></div>
+    </div>
+    <div style="text-align: center; margin-top: 15px;">
+        <p id="trafficStatus" style="font-weight: bold; font-size: 1.2em;">Стан: Вимкнено</p>
+        <button onclick="startTrafficLight()">Автоматичний режим</button>
+        <button onclick="manualNextLight()">Ручне перемикання</button>
+        <button onclick="setTrafficDurations()">Налаштувати час</button>
+    </div>
+</div>
+
+<div class="task-section">
+    <h2>Завдання 3: Дата та час</h2>
+    <div class="clock" id="digitalClock">00<span class="blink-colon">:</span>00<span class="blink-colon">:</span>00</div>
+
+    <h3>Таймер зворотного відліку</h3>
+    <input type="datetime-local" id="timerInput" aria-label="Встановлення часу для таймера">
+    <button onclick="startTimer()">Запустити таймер</button>
+    <p id="timerDisplay">Очікування...</p>
+
+    <h3>Відлік до дня народження (Календар)</h3>
+    <input type="date" id="birthdayInput" aria-label="Введення дати народження">
+    <button onclick="calculateBirthday()">Порахувати</button>
+    <p id="birthdayDisplay">Очікування...</p>
+</div>
+
+<div class="task-section">
+    <h2>Завдання 4: Магазин (Map, Set, WeakMap, WeakSet)</h2>
+    <input type="text" id="prodName" placeholder="Назва продукту" aria-label="Назва продукту">
+    <input type="number" id="prodPrice" placeholder="Ціна" aria-label="Ціна продукту">
+    <input type="number" id="prodQty" placeholder="Кількість" aria-label="Кількість продукту">
+    <button onclick="uiAddProduct()">Додати</button>
+    <br>
+    <input type="text" id="searchName" placeholder="Пошук за назвою" aria-label="Пошук продукту за назвою">
+    <button onclick="uiSearchProduct()">Знайти</button>
+    <button onclick="uiOrderProduct()">Замовити 1 шт.</button>
+
+    <h4>Лог магазину:</h4>
+    <div id="storeLog" class="store-log"></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
