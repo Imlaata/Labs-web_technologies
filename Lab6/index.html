@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookSpace | Магазин Книг</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,700;1,400&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="header">
+    <div class="header-content">
+        <h1>BookSpace.</h1>
+        <div class="total-price" id="totalPriceDisplay">Всього: 0 ₴</div>
+    </div>
+</header>
+
+<main class="container">
+    <aside class="controls-panel">
+        <section class="control-group">
+            <h3>Категорії</h3>
+            <div class="button-row" id="filterButtons">
+                <button type="button" data-category="Фентезі">Фентезі</button>
+                <button type="button" data-category="Романтика">Романтика</button>
+                <button type="button" data-category="Трилер">Трилер</button>
+                <button type="button" data-category="Драматична проза">Драматична</button>
+                <button type="button" data-category="all" class="reset-btn">Всі книги</button>
+            </div>
+        </section>
+
+        <section class="control-group">
+            <h3>Сортування</h3>
+            <div class="button-row" id="sortButtons">
+                <button type="button" data-sort="price">Від дешевих до дорогих</button>
+                <button type="button" data-sort="created">Новинки</button>
+                <button type="button" data-sort="updated">Останні оновлені</button>
+                <button type="button" data-sort="none" class="reset-btn">Скинути сортування</button>
+            </div>
+        </section>
+    </aside>
+
+    <section class="products-section">
+        <div class="section-header">
+            <h2>Каталог</h2>
+            <button type="button" id="addBtn" class="primary-btn add-new-btn">+ Додати книгу</button>
+        </div>
+
+        <div id="emptyState" class="empty-state">
+            <p>Наразі список товарів пустий. Додайте новий товар.</p>
+        </div>
+
+        <div id="productsGrid" class="products-grid">
+        </div>
+    </section>
+</main>
+
+<div id="productModal" class="modal-overlay">
+    <div class="modal-content">
+        <h2 id="modalTitle">Додати книгу</h2>
+        <form id="productForm">
+            <input type="hidden" id="bookId">
+            <div class="form-group">
+                <label for="bookName">Назва книги:</label>
+                <input type="text" id="bookName" required>
+            </div>
+            <div class="form-group">
+                <label for="bookPrice">Ціна (₴):</label>
+                <input type="number" id="bookPrice" min="1" step="1" required>
+            </div>
+            <div class="form-group">
+                <label for="bookCategory">Категорія:</label>
+                <select id="bookCategory" required>
+                    <option value="Фентезі">Фентезі</option>
+                    <option value="Романтика">Романтика</option>
+                    <option value="Трилер">Трилер</option>
+                    <option value="Драматична проза">Драматична проза</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="bookImage">Посилання на фото (URL):</label>
+                <input type="url" id="bookImage" required placeholder="https://...">
+            </div>
+            <div class="modal-actions">
+                <button type="button" id="cancelBtn" class="secondary-btn">Скасувати</button>
+                <button type="submit" class="primary-btn">Зберегти</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div id="toast" class="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
