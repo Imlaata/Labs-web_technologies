@@ -1,0 +1,202 @@
+[
+  {
+    "id": 1,
+    "gender": "female",
+    "name": { "title": "Mrs", "first": "Emma", "last": "Lampi" },
+    "location": {
+      "street": { "number": 2304, "name": "Siilitie" },
+      "city": "Hausjärvi",
+      "state": "Uusimaa",
+      "country": "Finland",
+      "postcode": "98555",
+      "timezone": { "offset": "+8:00", "description": "Beijing, Perth" }
+    },
+    "email": "emma.lampi@example.com",
+    "phone": "02-689-410",
+    "cell": "043-730-12-94",
+    "dob": { "date": "2001-03-08T01:39:19.084Z", "age": 25 },
+    "picture": "/users/user1.jpg",
+    "hobbies": ["Travel", "Photography", "Hiking", "Reading"],
+    "details": "UX Designer, loves mountains, specialty coffee enthusiast."
+  },
+  {
+    "id": 2,
+    "gender": "male",
+    "name": { "title": "Mr", "first": "Alex", "last": "Rivera" },
+    "location": {
+      "street": { "number": 102, "name": "Main St" },
+      "city": "Kyiv",
+      "state": "Kyiv Region",
+      "country": "Ukraine",
+      "postcode": "01001",
+      "timezone": { "offset": "+2:00", "description": "Kyiv" }
+    },
+    "email": "alex.rivera@example.com",
+    "phone": "+380441234567",
+    "cell": "+380671234567",
+    "dob": { "date": "2010-05-12T00:00:00.000Z", "age": 16 },
+    "picture": "/users/user2.jpg",
+    "hobbies": ["Gaming", "CyberSport", "Skateboarding"],
+    "details": "Junior high student, aspiring game developer."
+  },
+  {
+    "id": 3,
+    "gender": "female",
+    "name": { "title": "Ms", "first": "Sophia", "last": "Chen" },
+    "location": {
+      "street": { "number": 45, "name": "Broadway" },
+      "city": "New York",
+      "state": "NY",
+      "country": "USA",
+      "postcode": "10001",
+      "timezone": { "offset": "-5:00", "description": "EST" }
+    },
+    "email": "sophia.chen@example.com",
+    "phone": "212-555-0192",
+    "cell": "917-555-0143",
+    "dob": { "date": "1985-11-20T00:00:00.000Z", "age": 41 },
+    "picture": "/users/user3.jpg",
+    "hobbies": ["Cooking", "Yoga", "Oil Painting"],
+    "details": "Senior Software Architect with 15+ years of experience."
+  },
+  {
+    "id": 4,
+    "gender": "male",
+    "name": { "title": "Dr", "first": "Robert", "last": "Miller" },
+    "location": {
+      "street": { "number": 88, "name": "Queen St" },
+      "city": "London",
+      "state": "Greater London",
+      "country": "UK",
+      "postcode": "EC4R",
+      "timezone": { "offset": "+0:00", "description": "GMT" }
+    },
+    "email": "robert.miller@example.com",
+    "phone": "020-7946-0912",
+    "cell": "07700-900982",
+    "dob": { "date": "1968-02-14T00:00:00.000Z", "age": 58 },
+    "picture": "/users/user4.jpg",
+    "hobbies": ["Gardening", "History", "Chess"],
+    "details": "Professor of History, collector of antique maps."
+  },
+  {
+    "id": 5,
+    "gender": "female",
+    "name": { "title": "Miss", "first": "Anna", "last": "Kovalenko" },
+    "location": {
+      "street": { "number": 12, "name": "Central Ave" },
+      "city": "Lviv",
+      "state": "Lviv Region",
+      "country": "Ukraine",
+      "postcode": "79000",
+      "timezone": { "offset": "+2:00", "description": "Kyiv" }
+    },
+    "email": "anna.kovalenko@example.com",
+    "phone": "+380322000000",
+    "cell": "+380501112233",
+    "dob": { "date": "2004-09-01T00:00:00.000Z", "age": 22 },
+    "picture": "/users/user5.jpg",
+    "hobbies": ["Music", "Violin", "Dancing"],
+    "details": "Music Academy student, classical violinist."
+  },
+  {
+    "id": 6,
+    "gender": "male",
+    "name": { "title": "Mr", "first": "David", "last": "Kim" },
+    "location": {
+      "street": { "number": 77, "name": "Gangnam-daero" },
+      "city": "Seoul",
+      "state": "Seoul",
+      "country": "South Korea",
+      "postcode": "06164",
+      "timezone": { "offset": "+9:00", "description": "KST" }
+    },
+    "email": "david.kim@example.com",
+    "phone": "02-555-0111",
+    "cell": "010-5555-0122",
+    "dob": { "date": "1994-04-15T00:00:00.000Z", "age": 32 },
+    "picture": "/users/user6.jpg",
+    "hobbies": ["Cycling", "Coffee Brewing", "Blogging"],
+    "details": "Product Manager in tech startup."
+  },
+  {
+    "id": 7,
+    "gender": "female",
+    "name": { "title": "Mrs", "first": "Laura", "last": "Garcia" },
+    "location": {
+      "street": { "number": 15, "name": "Gran Via" },
+      "city": "Madrid",
+      "state": "Madrid",
+      "country": "Spain",
+      "postcode": "28013",
+      "timezone": { "offset": "+1:00", "description": "CET" }
+    },
+    "email": "laura.garcia@example.com",
+    "phone": "91-555-0188",
+    "cell": "600-555-0199",
+    "dob": { "date": "1978-08-30T00:00:00.000Z", "age": 48 },
+    "picture": "/users/user7.jpg",
+    "hobbies": ["Flamenco", "Pottery", "Interior Design"],
+    "details": "Architect and interior styling consultant."
+  },
+  {
+    "id": 8,
+    "gender": "male",
+    "name": { "title": "Mr", "first": "Lukas", "last": "Weber" },
+    "location": {
+      "street": { "number": 3, "name": "Berliner Str" },
+      "city": "Berlin",
+      "state": "Berlin",
+      "country": "Germany",
+      "postcode": "10115",
+      "timezone": { "offset": "+1:00", "description": "CET" }
+    },
+    "email": "lukas.weber@example.com",
+    "phone": "030-5550133",
+    "cell": "0151-5550144",
+    "dob": { "date": "2008-01-10T00:00:00.000Z", "age": 18 },
+    "picture": "/users/user8.jpg",
+    "hobbies": ["Snowboarding", "Robotics", "3D Printing"],
+    "details": "High school graduate preparing for IT University."
+  },
+  {
+    "id": 9,
+    "gender": "female",
+    "name": { "title": "Dr", "first": "Elena", "last": "Rossi" },
+    "location": {
+      "street": { "number": 9, "name": "Via Roma" },
+      "city": "Rome",
+      "state": "Lazio",
+      "country": "Italy",
+      "postcode": "00184",
+      "timezone": { "offset": "+1:00", "description": "CET" }
+    },
+    "email": "elena.rossi@example.com",
+    "phone": "06-555-0177",
+    "cell": "333-555-0188",
+    "dob": { "date": "1960-12-05T00:00:00.000Z", "age": 65 },
+    "picture": "/users/user9.jpg",
+    "hobbies": ["Wine Tasting", "Opera", "Gardening"],
+    "details": "Retired cardiologist, classical music lover."
+  },
+  {
+    "id": 10,
+    "gender": "male",
+    "name": { "title": "Mr", "first": "Taras", "last": "Shevchenko" },
+    "location": {
+      "street": { "number": 5, "name": "University St" },
+      "city": "Chernivtsi",
+      "state": "Chernivtsi Region",
+      "country": "Ukraine",
+      "postcode": "58000",
+      "timezone": { "offset": "+2:00", "description": "Kyiv" }
+    },
+    "email": "taras.shevchenko@example.com",
+    "phone": "+380372555555",
+    "cell": "+380667778899",
+    "dob": { "date": "1997-03-09T00:00:00.000Z", "age": 29 },
+    "picture": "/users/user10.jpg",
+    "hobbies": ["Literature", "Poetry", "AI Research"],
+    "details": "Postgraduate researcher in Computational Linguistics."
+  }
+]
