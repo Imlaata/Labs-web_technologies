@@ -1,0 +1,35 @@
+{
+  "name": "lab-02-library-app",
+  "version": "1.0.0",
+  "description": "Client-side library management app built with TypeScript and Webpack",
+  "main": "src/index.ts",
+  "scripts": {
+    "start": "webpack serve --mode development --open",
+    "build": "webpack --mode production",
+    "test": "mocha -r ts-node/register 'tests/**/*.test.ts'",
+    "lint": "eslint 'src/**/*.ts'",
+    "format": "prettier --write 'src/**/*.ts'"
+  },
+  "devDependencies": {
+    "@types/bootstrap": "^5.2.10",
+    "@types/chai": "^4.3.11",
+    "@types/mocha": "^10.0.6",
+    "@types/node": "^20.11.0",
+    "@typescript-eslint/eslint-plugin": "^6.19.0",
+    "@typescript-eslint/parser": "^6.19.0",
+    "bootstrap": "^5.3.2",
+    "chai": "^4.3.10",
+    "css-loader": "^6.9.1",
+    "eslint": "^8.56.0",
+    "html-webpack-plugin": "^5.6.0",
+    "mocha": "^10.2.0",
+    "prettier": "^3.2.4",
+    "style-loader": "^3.3.4",
+    "ts-loader": "^9.5.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
+  }
+}
